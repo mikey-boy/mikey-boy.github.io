@@ -1,6 +1,6 @@
 ---
 title:  "Implementing RBAC policies in Kubernetes"
-date:   2022-04-08 10:29:27 -0400
+date:   2022-05-05 12:00:00 -0400
 draft: false
 tags: ["kubernetes", "rbac", "helm", "multi-tenancy"]
 categories: ["kubernetes"]
@@ -36,7 +36,7 @@ Setting up authentication is typically done when the cluster is created. For thi
 
 ### Multi-tenancy isolation
 
-As stated earlier, multi-tenancy isolation prevents different teams working in the same cluster from interfering with eachother. One way this can be achieved is with the use of _namespaces_. For each tenant/team, we can create a list of associated namespaces and grant them permissions within those namespaces. This will prevent others from accidently (or maliciously) affecting the objects within their namespaces and vice-versa.
+As stated earlier, multi-tenancy isolation prevents different teams working in the same cluster from interfering with eachother. One way this can be achieved is with the use of _namespaces_. For each tenant/team, we can create a list of associated namespaces and grant them permissions within those namespaces. This will prevent different teams from accidently (or maliciously) modifying Kubernetes objects within namespaces they do not control.
 
 Some applications can not be strictly bound to namespaces though. An nginx ingress controller needs to monitor Ingress objects in _every_ namespace in order to properly route to the applications running inside the cluster.
 
@@ -57,7 +57,7 @@ These two issues are closely related. If we have better maintainability, we have
 
 ### Custom Helm Chart
 
-A custom helm chart helps with the problem of maintainability. We simplify the creation of numerous RBAC objects, many of them similar in nature, into a single values file. We update this values file as needed, and use it to reference what permissions are currently granted within our cluster.
+I created a [custom helm chart](https://artifacthub.io/packages/helm/mikey-boy/aks-rbac) to help with the problem of maintainability. We only need to focus on a few YAML files describing a tenant and their associated namespaces. The chart will handle creating the actual Kubernetes objects from the values we supply. These objects are tracked within the cluster (using helm-specific labels) and are updated accordingly if any permissions are granted or revoked.
 
 Lets take a look at an example:
 ```yaml
