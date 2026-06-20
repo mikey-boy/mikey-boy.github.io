@@ -29,7 +29,6 @@ theme = "LoveIt"
   [params.social]
     GitHub = "mikey-boy"
     Twitter = "mikeyboy_12"
-    Email = "michael.argany@protonmail.com"
 
   [params.page]
     [params.page.toc]
