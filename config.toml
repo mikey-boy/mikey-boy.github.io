@@ -8,12 +8,12 @@ title = "cd ~"
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
 
-[author]
-  name = "mikey-boy"
-
 [params]
   # LoveIt theme version
   version = "0.2.X"
+  #title = "cd ~"
+  description = " "
+
 
   [params.home]
     [params.home.profile]
@@ -21,6 +21,10 @@ theme = "LoveIt"
       gravatarEmail = ""
       avatarURL = "/images/cookie.jpg"
       social = true
+      subtitle = ""
+
+  [params.author]
+    name = "mikey-boy"
 
   [params.social]
     GitHub = "mikey-boy"
@@ -31,6 +35,11 @@ theme = "LoveIt"
     [params.page.toc]
       # whether to make the table of the contents in the sidebar automatically collapsed
       auto = false
+
+
+  [params.header]
+    [params.header.title]
+      name = "cd ~"
 
 [menu]
   [[menu.main]]

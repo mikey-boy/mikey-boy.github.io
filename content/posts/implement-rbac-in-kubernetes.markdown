@@ -6,8 +6,6 @@ tags: ["kubernetes", "rbac", "helm", "multi-tenancy"]
 categories: ["kubernetes"]
 ---
 
-## Overview
-
 In this blog post I will talk about implementing RBAC policies within a Kubernetes cluster to enforce multi-tenancy isolation. I essentially wanted to prevent different development teams working within the same cluster from stepping on eachother's toes (which can happen quite easily if everyone has cluster-admin privileges). I achieved this by developing a custom Helm chart that creates and tracks all the necessary Kubernetes objects needed to enforce this isolation.
 
 ## Background
