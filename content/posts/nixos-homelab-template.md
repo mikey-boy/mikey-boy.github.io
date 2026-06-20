@@ -1,5 +1,5 @@
 ---
-title:  "A template for using NixOS in a homelab"
+title:  "A starting point for using NixOS in a homelab"
 date:   2026-06-14 12:00:00 -0400
 draft: false
 tags: ["homelab", "nixos"]
